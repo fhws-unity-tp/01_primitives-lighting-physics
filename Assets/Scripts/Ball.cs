@@ -9,8 +9,14 @@ public class Ball : MonoBehaviour {
 	void Awake () {
 		SetRandomColor ();
 		SetLifetime ();
+		SetRandomMass ();
 	}
-	
+
+	void SetRandomMass () {
+		Rigidbody rb = gameObject.GetComponent<Rigidbody> ();
+		rb.mass = Random.Range (10, 100);
+	}
+
 	void SetLifetime () {
 		if (lifetime > 0.0f) {
 			Destroy(gameObject, lifetime);
@@ -19,7 +25,7 @@ public class Ball : MonoBehaviour {
 
 	void SetRandomColor () {
 		// Set random Color
-		Material mat = GetComponent<MeshRenderer> ().materials [0];
+		Material mat = gameObject.GetComponent<MeshRenderer> ().materials [0];
 		Color color = Random.ColorHSV();
 
 		mat.color = color;
