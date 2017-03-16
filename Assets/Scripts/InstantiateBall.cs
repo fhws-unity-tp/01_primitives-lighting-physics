@@ -19,7 +19,7 @@ public class InstantiateBall : MonoBehaviour {
 	}
 
 	void CreateBall () {
-		GameObject ball = Instantiate (prefab, position, Quaternion.identity);
+		GameObject ball = Instantiate (prefab, position, Quaternion.identity, gameObject.transform);
 
 		// Set random Color
 		Material mat = ball.GetComponent<MeshRenderer> ().materials [0];
